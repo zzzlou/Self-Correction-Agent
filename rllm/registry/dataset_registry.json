@@ -1,0 +1,46 @@
+{
+  "deepscaler_math": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/deepscaler_math/train.parquet"
+  },
+  "aime2024": {
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/aime2024/test.parquet"
+  },
+  "frozenlake": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/frozenlake/train.parquet",
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/frozenlake/test.parquet"
+  },
+  "jericho": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/jericho/train.parquet",
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/jericho/test.parquet"
+  },
+  "stream_bench": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/stream_bench/train.parquet",
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/stream_bench/test.parquet"
+  },
+  "stream_bench_pass5": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/stream_bench_pass5/train.parquet",
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/stream_bench_pass5/test.parquet"
+  },
+  "ddxplus_continuous": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus_continuous/train.parquet",
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus_continuous/test.parquet"
+  },
+  "ddxplus": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus/train.parquet",
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus/test.parquet"
+  },
+  "ddxplus_w10": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus_w10/train.parquet"
+  },
+  "ddxplus_w5": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus_w5/train.parquet",
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus_w5/test.parquet"
+  },
+  "ddxplus_w1": {
+    "train": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus_w1/train.parquet",
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/ddxplus_w1/test.parquet"
+  },
+  "jericho_exp": {
+    "test": "/home/zhanzhi/rllm/rllm/data/datasets/jericho_exp/test.parquet"
+  }
+}

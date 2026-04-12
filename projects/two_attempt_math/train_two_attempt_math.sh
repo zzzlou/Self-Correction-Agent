@@ -60,4 +60,5 @@ python3 -m projects.two_attempt_math.train \
     trainer.default_hdfs_dir=null \
     trainer.total_epochs=100 \
     rllm.stepwise_advantage.enable=True \
-    rllm.stepwise_advantage.mode=per_step
+    rllm.stepwise_advantage.mode=per_step \
+    rllm.agent.max_steps=2

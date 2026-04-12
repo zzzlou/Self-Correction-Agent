@@ -133,7 +133,7 @@ class TwoAttemptSelfCorrectionEnv(MultiTurnEnvironment):
 
     @staticmethod
     def build_attempt_2_prompt(question: str, attempt_1: str) -> str:
-        return ATTEMPT_2_TEMPLATE.format(question=question, attempt_1=strip_hidden_reasoning(attempt_1))
+        return ATTEMPT_2_TEMPLATE.format(question=question, attempt_1=attempt_1)
 
     @staticmethod
     def from_dict(env_args: dict) -> "TwoAttemptSelfCorrectionEnv":

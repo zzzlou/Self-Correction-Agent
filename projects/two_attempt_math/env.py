@@ -48,6 +48,8 @@ def two_attempt_math_reward_fn(task_info: dict, action: Any, attempt_index: int)
 
 
 def extract_attempt_text(action: Any) -> str:
+    if hasattr(action, "action"):
+        return str(action.action)
     return str(action)
 
 
@@ -111,7 +113,7 @@ class TwoAttemptSelfCorrectionEnv(MultiTurnEnvironment):
         reward_output = two_attempt_math_reward_fn(task_info=task, action=action, attempt_index=next_attempt_index)
 
         if next_attempt_index == 1:
-            self.attempt_1_action = extract_attempt_text(action)
+            self.attempt_1_action = strip_hidden_reasoning(extract_attempt_text(action))
             self.attempt_1_correct = reward_output.is_correct
             if reward_output.is_correct:
                 return reward_output.reward, {}

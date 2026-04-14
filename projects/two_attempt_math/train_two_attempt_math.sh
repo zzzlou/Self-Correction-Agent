@@ -10,7 +10,7 @@ MODEL_PATH=deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
 
 python3 -m projects.two_attempt_math.train \
     algorithm.adv_estimator=grpo \
-    data.train_batch_size=8 \
+    data.train_batch_size=16 \
     data.val_batch_size=512 \
     data.max_prompt_length=4096 \
     data.max_response_length=2048 \
@@ -37,7 +37,7 @@ python3 -m projects.two_attempt_math.train \
     actor_rollout_ref.rollout.mode="async" \
     actor_rollout_ref.rollout.enforce_eager=False \
     actor_rollout_ref.rollout.temperature=0.6 \
-    actor_rollout_ref.rollout.gpu_memory_utilization=0.9 \
+    actor_rollout_ref.rollout.gpu_memory_utilization=0.6 \
     actor_rollout_ref.rollout.n=8 \
     actor_rollout_ref.rollout.val_kwargs.n=1 \
     actor_rollout_ref.rollout.val_kwargs.temperature=0.6 \
@@ -53,10 +53,10 @@ python3 -m projects.two_attempt_math.train \
     trainer.project_name='rllm-agent' \
     trainer.experiment_name='two-attempt-math' \
     trainer.val_before_train=True \
-    trainer.n_gpus_per_node=8 \
+    trainer.n_gpus_per_node=2 \
     trainer.nnodes=1 \
-    trainer.save_freq=1000 \
-    trainer.test_freq=10 \
+    trainer.save_freq=50 \
+    trainer.test_freq=30 \
     trainer.default_hdfs_dir=null \
     trainer.total_epochs=100 \
     rllm.stepwise_advantage.enable=True \

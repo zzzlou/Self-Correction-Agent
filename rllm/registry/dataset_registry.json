@@ -42,5 +42,11 @@
   },
   "jericho_exp": {
     "test": "/home/zhanzhi/rllm/rllm/data/datasets/jericho_exp/test.parquet"
+  },
+  "two_attempt_math_train": {
+    "train": "/home/zhanzhi/Self-Correction-Agent/rllm/data/datasets/two_attempt_math_train/train.parquet"
+  },
+  "two_attempt_math_test": {
+    "test": "/home/zhanzhi/Self-Correction-Agent/rllm/data/datasets/two_attempt_math_test/test.parquet"
   }
 }

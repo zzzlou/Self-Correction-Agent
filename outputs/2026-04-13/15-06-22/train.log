@@ -1,0 +1,4 @@
+[2026-04-13 15:06:22,297][rllm.data.dataset][WARNING] - Dataset 'two_attempt_math_train' not found in registry.
+[2026-04-13 15:06:22,297][rllm.data.dataset][WARNING] - Dataset 'two_attempt_math_test' not found in registry.
+[2026-04-13 15:06:59,394][rllm.data.dataset][INFO] - Registered dataset 'two_attempt_math_train' split 'train' with 7500 examples. Verl-processed version saved at /home/zhanzhi/Self-Correction-Agent/rllm/data/datasets/two_attempt_math_train/train_verl.parquet.
+[2026-04-13 15:06:59,424][rllm.data.dataset][INFO] - Registered dataset 'two_attempt_math_test' split 'test' with 500 examples. Verl-processed version saved at /home/zhanzhi/Self-Correction-Agent/rllm/data/datasets/two_attempt_math_test/test_verl.parquet.

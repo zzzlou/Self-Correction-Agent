@@ -113,9 +113,9 @@ async def run_episode(task: dict, rollout_engine: OpenAIEngine) -> Episode:
     episode = Episode(
         id=str(uuid.uuid4()),
         task=task,
-        termination_reason=TerminationReason.ENV_DONE,
         trajectories=[("agent", agent.trajectory)],
     )
+    episode.termination_reason = TerminationReason.ENV_DONE
     episode.is_correct = bool(agent.trajectory.steps[-1].info.get("final_correct", False))
     episode.metrics = summarize_results([episode])
     return episode
@@ -138,14 +138,29 @@ if __name__ == "__main__":
     model_name = os.environ.get("MODEL_NAME", "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B")
     base_url = os.environ.get("BASE_URL", "http://localhost:30000/v1")
 
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    rollout_engine = OpenAIEngine(
-        model=model_name,
-        tokenizer=tokenizer,
-        base_url=base_url,
-        api_key=os.environ.get("OPENAI_API_KEY", "None"),
-        sampling_params={"temperature": 0.6, "top_p": 0.95, "max_tokens": 2048},
-    )
+    tokenizer = None
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+    except Exception as exc:
+        print(f"Falling back to chat completions without a local tokenizer: {exc}")
+
+    try:
+        rollout_engine = OpenAIEngine(
+            model=model_name,
+            tokenizer=tokenizer,
+            base_url=base_url,
+            api_key=os.environ.get("OPENAI_API_KEY", "None"),
+            sampling_params={"temperature": 0.6, "top_p": 0.95, "max_tokens": 2048},
+        )
+    except AssertionError as exc:
+        print(f"Falling back to chat completions after tokenizer parser setup failed: {exc}")
+        rollout_engine = OpenAIEngine(
+            model=model_name,
+            tokenizer=None,
+            base_url=base_url,
+            api_key=os.environ.get("OPENAI_API_KEY", "None"),
+            sampling_params={"temperature": 0.6, "top_p": 0.95, "max_tokens": 2048},
+        )
 
     tasks = load_eval_tasks()
     results = asyncio.run(evaluate_tasks(tasks, rollout_engine, n_parallel_tasks=n_parallel_tasks))
